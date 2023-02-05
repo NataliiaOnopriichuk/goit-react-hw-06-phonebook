@@ -1,11 +1,10 @@
 import css from './ContactItem.module.css';
-import { useContext } from 'react';
-import { ContactsContext } from 'index';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeContact } from 'redux/cotactsSlice';
 
 export const ContactItem = ({ name, number, id }) => {
-  const { contacts, setContacts } = useContext(ContactsContext);
-
+  const dispatch = useDispatch();
   return (
     <li className={css.listItem}>
       <p>
@@ -15,7 +14,7 @@ export const ContactItem = ({ name, number, id }) => {
         type="button"
         className={css.btnDelete}
         onClick={() => {
-          setContacts(contacts.filter(el => el.id !== id));
+          dispatch(removeContact(id));
         }}
       >
         Delete

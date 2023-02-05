@@ -1,22 +1,20 @@
 import React from 'react';
-import css from './Filter.module.css';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from 'redux/cotactsSlice';
 
-export const Filter = ({ nameFilter, handleChangeFilter }) => {
+import css from './Filter.module.css';
+
+export const Filter = () => {
+  const dispatch = useDispatch();
+
   return (
     <label className={css.label}>
       Find contacts by name
       <input
         type="text"
         name="filter"
-        value={nameFilter}
-        onChange={handleChangeFilter}
+        onChange={event => dispatch(changeFilter(event.target.value))}
       />
     </label>
   );
-};
-
-Filter.propTypes = {
-  nameFilter: PropTypes.string.isRequired,
-  handleChangeFilter: PropTypes.func.isRequired,
 };

@@ -1,27 +1,15 @@
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import { Filter } from '../Filter/Filter';
-import { useContext, useMemo, useState, useEffect } from 'react';
-import { ContactsContext } from 'index';
+// import { useContext, useMemo, useState, useEffect } from 'react';
+// import { ContactsContext } from 'index';
 
 export const App = () => {
-  const [filter, setFilter] = useState('');
-  const { contacts } = useContext(ContactsContext);
+  // const { contacts } = useContext(ContactsContext);
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-  const handleChangeFilter = event => {
-    const { value } = event.target;
-    setFilter(value);
-  };
-
-  const filterContactsByName = useMemo(() => {
-    return contacts.filter(({ name }) =>
-      name.toLowerCase().includes(filter.toLowerCase().trim())
-    );
-  }, [contacts, filter]);
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
   return (
     <div
@@ -38,8 +26,8 @@ export const App = () => {
       <ContactForm />
 
       <h2>Contacts</h2>
-      <Filter nameFilter={filter} handleChangeFilter={handleChangeFilter} />
-      <ContactList contacts={filterContactsByName} />
+      <Filter />
+      <ContactList />
     </div>
   );
 };
