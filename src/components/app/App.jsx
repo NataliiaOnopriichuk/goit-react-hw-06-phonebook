@@ -1,16 +1,8 @@
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import { Filter } from '../Filter/Filter';
-// import { useContext, useMemo, useState, useEffect } from 'react';
-// import { ContactsContext } from 'index';
 
 export const App = () => {
-  // const { contacts } = useContext(ContactsContext);
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
   return (
     <div
       style={{
